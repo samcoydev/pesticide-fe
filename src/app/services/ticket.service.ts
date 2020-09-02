@@ -13,4 +13,8 @@ export class TicketService {
   getTickets() {
     return this.httpClient.get<Ticket[]>(this.url);
   }
+
+  getTicket(id: number) {
+    return this.httpClient.get<Ticket>(this.url + '/' + `${id}`);
+  }
 }
