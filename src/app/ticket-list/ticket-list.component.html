@@ -1,2 +1,8 @@
 <p>ticket-list works!</p>
-<button (click)="getTickets()">Get Tickets</button> 
+<button (click)="getTickets()">Get Ti<div class="ticket-content">
+    <p>ticket-list works!</p>
+    <button (click)="getTickets()">Get Tickets</button>
+    <ul *ngFor="let ticket of tickets">
+        <li>{{ ticket.ID }}: {{ ticket.description }} on {{ ticket.timestamp | date }}</li>
+    </ul>
+</div>
