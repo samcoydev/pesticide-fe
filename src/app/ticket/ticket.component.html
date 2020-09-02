@@ -1,5 +1,5 @@
 <input [(ngModel)]="ticketId" placeholder="id"/>
 <button (click)="getTicket(ticketId)">Get Ticket:</button>
 <div *ngIf='ticket != null'>
-    <div>{{ ticket.ID }}: {{ ticket.description }} on {{ ticket.timestamp | date }}</div>
+    <div class="ticket">{{ ticket.ID }}: {{ ticket.description }} on {{ ticket.timestamp | date }}</div>
 </div>

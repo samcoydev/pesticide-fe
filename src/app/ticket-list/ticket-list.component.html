@@ -1,6 +1,6 @@
 <div class="ticket-content">
     <button (click)="getTickets()">Get Tickets</button>
     <ul *ngFor="let ticket of tickets">
-        <li>{{ ticket.ID }}: {{ ticket.description }} on {{ ticket.timestamp | date }}</li>
+        <li class="ticket">{{ ticket.ID }}: {{ ticket.description }} on {{ ticket.timestamp | date }}</li>
     </ul>
 </div>
