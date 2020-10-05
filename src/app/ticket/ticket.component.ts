@@ -23,5 +23,4 @@ export class TicketComponent implements OnInit {
         this.ticket = response;
       });
   }
-
 }

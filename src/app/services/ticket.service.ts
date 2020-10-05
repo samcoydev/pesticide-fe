@@ -17,4 +17,8 @@ export class TicketService {
   getTicket(id: number) {
     return this.httpClient.get<Ticket>(this.url + '/' + `${id}`);
   }
+
+  postTicket(ticket: Ticket) {
+    return this.httpClient.post<Ticket>(this.url, ticket);
+  }
 }
