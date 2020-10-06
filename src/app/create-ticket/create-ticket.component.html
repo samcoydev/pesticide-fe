@@ -1,5 +1,12 @@
 <h2>Create a ticket!</h2>
+<label>Ticket Title
+    <input [(ngModel)]="ticketTitle" placeholder="type here.."/>
+</label>
 <label>Ticket Description
     <input [(ngModel)]="ticketDesc" placeholder="type here.."/>
 </label>
-<button (click)="create()">Create</button>
+<div *ngIf="ticketTitle != null">
+    <div *ngIf="ticketDesc != null">
+        <button (click)="create()">Create</button>
+    </div>
+</div>

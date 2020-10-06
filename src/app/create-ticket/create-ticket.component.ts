@@ -11,6 +11,7 @@ import { TicketService } from '../services/ticket.service';
 export class CreateTicketComponent implements OnInit {
 
   ticket;
+  ticketTitle: string;
   ticketDesc: string;
 
   constructor(private ticketService: TicketService) { 
@@ -21,6 +22,7 @@ export class CreateTicketComponent implements OnInit {
   }
 
   create() {
+    this.ticket.title = this.ticketTitle;
     this.ticket.description = this.ticketDesc;
     this.ticket.timestamp = new Date();
 
