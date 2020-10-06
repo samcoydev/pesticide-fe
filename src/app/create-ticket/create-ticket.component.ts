@@ -24,7 +24,10 @@ export class CreateTicketComponent implements OnInit {
     this.ticket.description = this.ticketDesc;
     this.ticket.timestamp = new Date();
 
-    this.ticketService.postTicket(this.ticket).subscribe;
+    this.ticketService.postTicket(this.ticket)
+    .subscribe(data => {
+        console.log(data);
+    }, error => console.log(error));;
   }
 
 }

@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { TicketListComponent } from './ticket-list/ticket-list.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { CreateTicketComponent } from './create-ticket/create-ticket.component';
+import { DeleteTicketComponent } from './delete-ticket/delete-ticket.component';
 
 const routes: Routes = [];
 
@@ -13,7 +14,8 @@ const routes: Routes = [];
     RouterModule.forRoot([
       {path: 'ticket-list', component: TicketListComponent},
       {path: 'ticket', component: TicketComponent},
-      {path: 'create-ticket', component: CreateTicketComponent}
+      {path: 'create-ticket', component: CreateTicketComponent},
+      {path: 'delete-ticket', component: DeleteTicketComponent}
     ])
   ],
   exports: [RouterModule]

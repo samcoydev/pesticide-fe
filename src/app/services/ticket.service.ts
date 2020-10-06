@@ -24,4 +24,8 @@ export class TicketService {
     console.log('test', ticket);
     return this.httpClient.post<Ticket>(this.url, ticket);
   }
+
+  deleteTicket(id: number) {
+    return this.httpClient.delete<Ticket>(this.url + '/' + `${id}`);
+  }
 }
