@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Ticket } from '../models/ticket';
 
+import { Observable, of, from } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -18,7 +20,8 @@ export class TicketService {
     return this.httpClient.get<Ticket>(this.url + '/' + `${id}`);
   }
 
-  postTicket(ticket: Ticket) {
+  postTicket(ticket: Ticket): Observable<Ticket> {
+    console.log('test', ticket);
     return this.httpClient.post<Ticket>(this.url, ticket);
   }
 }

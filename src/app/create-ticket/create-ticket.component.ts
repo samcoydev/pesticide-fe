@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Ticket } from '../models';
+
+import { TicketService } from '../services/ticket.service';
 
 @Component({
   selector: 'app-create-ticket',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateTicketComponent implements OnInit {
 
-  constructor() { }
+  ticket;
+  ticketDesc: string;
+
+  constructor(private ticketService: TicketService) { 
+  }
 
   ngOnInit(): void {
+    this.ticket = new Ticket;
+  }
+
+  create() {
+    this.ticket.description = this.ticketDesc;
+    this.ticket.timestamp = new Date();
+
+    this.ticketService.postTicket(this.ticket).subscribe;
   }
 
 }
