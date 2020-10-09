@@ -1,18 +1,28 @@
-<!-- Toolbar -->
-<div class="toolbar" role="banner">
-  <span>Pesticide!</span>
-  <div class="spacer"></div>
-</div>
+
 <div class="content" role="main">
-  <nav>
-    <a class="button" routerLink="/ticket-list">Ticket List</a>
-    <a class="button" routerLink="/ticket">Search Ticket</a>
-    <a class="button" routerLink="/create-ticket">Create Ticket</a>
-    <a class="button" routerLink="/delete-ticket">Delete Ticket</a>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" routerLink="/">Pesticide</a>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/ticket-list">Ticket List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/ticket">Search Ticket</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/create-ticket">Create Ticket</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/delete-ticket">Delete Ticket</a>
+        </li>
+      </ul>
+    </div>
   </nav>
   <router-outlet></router-outlet>
   <!-- Footer -->
-  <footer>
+  <footer class="page-footer">
       Copyright stuff. Contact me. Whatever
   </footer>
 </div>

@@ -1,3 +1,7 @@
 .spaced {
     margin-right: 10px;
 }
+.page-footer {
+    position: fixed;
+    bottom: 0;
+}

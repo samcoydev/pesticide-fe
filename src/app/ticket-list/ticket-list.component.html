@@ -1,5 +1,6 @@
+<h2>List of all tickets!</h2>
 <div class="ticket-content">
-    <button (click)="getTickets()">Get Tickets</button>
+    <button class="btn btn-light" (click)="getTickets()">Get Tickets</button>
     <ul *ngFor="let ticket of tickets">
         <li class="ticket">{{ ticket.ID }}: {{ticket.title}} {{ ticket.description }} on {{ ticket.timestamp | date }}</li>
     </ul>
