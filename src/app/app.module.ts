@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TicketComponent } from './ticket/ticket.component';
 import { CreateTicketComponent } from './create-ticket/create-ticket.component';
 import { DeleteTicketComponent } from './delete-ticket/delete-ticket.component';
+import { NavComponent } from './nav/nav.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { DeleteTicketComponent } from './delete-ticket/delete-ticket.component';
     TicketListComponent,
     TicketComponent,
     CreateTicketComponent,
-    DeleteTicketComponent
+    DeleteTicketComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,

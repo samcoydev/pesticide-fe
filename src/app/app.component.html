@@ -1,28 +1,21 @@
 
 <div class="content" role="main">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" routerLink="/">Pesticide</a>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/ticket-list">Ticket List</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/ticket">Search Ticket</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/create-ticket">Create Ticket</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/delete-ticket">Delete Ticket</a>
-        </li>
-      </ul>
+  <app-nav></app-nav>
+  <!-- yep but let us put some row/col stuff in too -->
+
+  
+    <!-- col for left tickets-->
+    <!-- col for right hand stuff -->
+  <div class="row"><!-- main row for whole page-->
+    <div class="col-3">
+      <app-ticket-list></app-ticket-list>
     </div>
-  </nav>
-  <router-outlet></router-outlet>
+    <div class="col-9">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+  
   <!-- Footer -->
   <footer class="page-footer">
       Copyright stuff. Contact me. Whatever

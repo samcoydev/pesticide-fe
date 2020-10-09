@@ -12,7 +12,7 @@ const routes: Routes = [];
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      {path: 'ticket-list', component: TicketListComponent},
+      //{path: 'ticket-list', component: TicketListComponent},
       {path: 'ticket', component: TicketComponent},
       {path: 'create-ticket', component: CreateTicketComponent},
       {path: 'delete-ticket', component: DeleteTicketComponent}
