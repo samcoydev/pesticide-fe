@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TicketComponent } from './ticket/ticket.component';
 import { CreateTicketComponent } from './create-ticket/create-ticket.component';
 import { DeleteTicketComponent } from './delete-ticket/delete-ticket.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -24,8 +24,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
-    NgbModule.forRoot()
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
