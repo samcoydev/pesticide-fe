@@ -1,6 +1,12 @@
-<h2>Search for tickets.</h2>
-<input [(ngModel)]="ticketId" placeholder="type here.."/>
-<button class="btn btn-success" (click)="getTicket(ticketId)">Search</button>
 <div *ngIf='ticket != null'>
-    <div class="ticket">{{ ticket.ID }}: {{ ticket.description }} on {{ ticket.timestamp | date }}</div>
+    <div class="row bg-light rounded col-6">
+        <h1>{{ ticket.title }}</h1>
+        <p> ID: {{ticket.ID}}</p>
+    </div>
+    <div class="row bg-light rounded col-6">
+        {{ ticket.description }}
+    </div>
+    <div class="row">
+        <p>{{ ticket.timestamp | date }}</p>
+    </div>
 </div>

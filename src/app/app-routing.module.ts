@@ -13,6 +13,7 @@ const routes: Routes = [];
     BrowserModule,
     RouterModule.forRoot([
       {path: 'ticket', component: TicketComponent},
+      {path: 'ticket/:ticketId', component: TicketComponent}, 
       {path: 'create-ticket', component: CreateTicketComponent},
       {path: 'delete-ticket', component: DeleteTicketComponent}
     ])

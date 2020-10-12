@@ -1,5 +1,5 @@
-.ticket {
-    margin-top: 15px;
-    border: thin solid black;
-    border-radius: 3px;
+.rounded {
+    border: thin solid lightslategray;
+    border-radius: 5px;
+    padding: 5px;
 }
