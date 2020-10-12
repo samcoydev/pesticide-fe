@@ -1,12 +1,9 @@
 
 <div class="content" role="main">
   <app-nav></app-nav>
-  <!-- yep but let us put some row/col stuff in too -->
 
-  
-    <!-- col for left tickets-->
-    <!-- col for right hand stuff -->
-  <div class="row"><!-- main row for whole page-->
+  <!-- Main row -->
+  <div class="row">
     <div class="col-3">
       <app-ticket-list></app-ticket-list>
     </div>
@@ -14,7 +11,7 @@
       <router-outlet></router-outlet>
     </div>
   </div>
-
+ <!-- when you click a ticket it should just router link -->
   
   <!-- Footer -->
   <footer class="page-footer">

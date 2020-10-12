@@ -1,8 +1,12 @@
 <h2>List of all tickets.</h2>
 <div class="ticket-content">
     <ul *ngFor="let ticket of tickets">
-        <li class="ticket">{{ ticket.ID }}: {{ticket.title}} {{ ticket.description }} on {{ ticket.timestamp | date }}</li>
+        <li class="ticket">
+            <a class="nav-link" routerLink="/ticket/id:{{ ticket.ID }}" >
+                {{ ticket.ID }}: {{ticket.title}} {{ ticket.description }} on {{ ticket.timestamp | date }}
+            </a>
+        </li>
     </ul>
-    
+    <a class="nav-link" routerLink="/create-ticket">Create Ticket</a>
     <button class="btn btn-light" (click)="getTickets()">Refresh</button>
 </div>

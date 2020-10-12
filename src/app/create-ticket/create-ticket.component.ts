@@ -29,6 +29,8 @@ export class CreateTicketComponent implements OnInit {
     this.ticketService.postTicket(this.ticket)
     .subscribe(data => {
         console.log(data);
+        // notify the service that the ticket list has changed
+        this.ticketService.announceTicketsUpdated("Tickets updated - new record");
     }, error => console.log(error));;
   }
 

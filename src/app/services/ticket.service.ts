@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Ticket } from '../models/ticket';
 
-import { Observable, of, from } from 'rxjs';
+import { Observable, of, from, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,15 @@ export class TicketService {
 
   constructor(private httpClient: HttpClient) { }
   
+  // Set up a way to advertise to observers that something happened
+  private ticketsUpdatedSource = new Subject<string>();
+  ticketsUpdated$ = this.ticketsUpdatedSource.asObservable();
+
+  // call this after saving or deleting and so on
+  announceTicketsUpdated(message: string) {
+      this.ticketsUpdatedSource.next(message);
+  }
+
   getTickets() {
     return this.httpClient.get<Ticket[]>(this.url);
   }
