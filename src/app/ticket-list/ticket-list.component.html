@@ -2,7 +2,7 @@
 <div class="ticket-content">
     <ul *ngFor="let ticket of tickets">
         <li class="ticket">
-            <a class="nav-link bg-light text.primary" routerLink="/ticket/{{ticket.ID}}" >
+            <a class="nav-link bg-light" routerLink="/ticket/{{ticket.ID}}" >
                 {{ ticket.ID }}: {{ticket.title}} -- {{ ticket.timestamp | date }}
             </a>
         </li>
