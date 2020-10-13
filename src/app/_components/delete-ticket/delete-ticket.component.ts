@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { TicketService } from '../services/ticket.service';
-import { Ticket } from '../models';
+import { TicketService } from '../../services/ticket.service';
+import { Ticket } from '../../models/ticket';
 
 @Component({
   selector: 'app-delete-ticket',

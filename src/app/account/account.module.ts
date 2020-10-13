@@ -4,8 +4,8 @@ import { CommonModule } from '@angular/common';
 
 import { AccountRoutingModule } from './account-routing.module';
 
-import { LoginComponent } from './login.component';
-import { RegisterComponent } from './register.component';
+import { LoginComponent } from '../_components/login/login.component';
+import { RegisterComponent } from '../_components/register/register.component';
 
 @NgModule({
     imports: [

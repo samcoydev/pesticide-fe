@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Ticket } from '../models';
+import { Ticket } from '../../models';
 
-import { TicketService } from '../services/ticket.service';
+import { TicketService } from '../../services/ticket.service';
 
 @Component({
   selector: 'app-create-ticket',
