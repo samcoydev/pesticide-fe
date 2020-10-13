@@ -4,13 +4,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TicketListComponent } from './ticket-list/ticket-list.component';
+import { TicketListComponent } from './_components/ticket-list/ticket-list.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { TicketComponent } from './ticket/ticket.component';
-import { CreateTicketComponent } from './create-ticket/create-ticket.component';
-import { DeleteTicketComponent } from './delete-ticket/delete-ticket.component';
-import { NavComponent } from './nav/nav.component';
+import { TicketComponent } from './_components/ticket/ticket.component';
+import { CreateTicketComponent } from './_components/create-ticket/create-ticket.component';
+import { DeleteTicketComponent } from './_components/delete-ticket/delete-ticket.component';
+import { NavComponent } from './_components/nav/nav.component';
 
 
 @NgModule({
