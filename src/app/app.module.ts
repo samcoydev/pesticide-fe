@@ -6,12 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TicketListComponent } from './_components/ticket-list/ticket-list.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TicketComponent } from './_components/ticket/ticket.component';
 import { CreateTicketComponent } from './_components/create-ticket/create-ticket.component';
 import { DeleteTicketComponent } from './_components/delete-ticket/delete-ticket.component';
 import { NavComponent } from './_components/nav/nav.component';
 
+import { ErrorInterceptor } from './_helpers/error.interceptor'
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { NavComponent } from './_components/nav/nav.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

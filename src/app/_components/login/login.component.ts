@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   loading = false;
   submitted = false;
+  error: '';
 
   constructor(
     private accountService: AccountService,
@@ -48,6 +49,7 @@ export class LoginComponent implements OnInit {
           this.router.navigateByUrl(returnUrl);
         },
         error: error => {
+          this.error = error;
           this.loading = false;
         }
       });

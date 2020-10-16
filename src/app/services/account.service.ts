@@ -36,6 +36,7 @@ export class AccountService {
 
   logout() {
     // remove user from local storage and set current user to null
+    console.log('logged out');
     localStorage.removeItem('user');
     this.userSubject.next(null);
     this.router.navigate(['/account/login']);
