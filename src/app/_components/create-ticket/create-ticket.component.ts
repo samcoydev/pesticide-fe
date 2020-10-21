@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Ticket } from '../../models';
 
 import { TicketService } from '../../services/ticket.service';
+import { LogService } from '../../services/log.service';
 
 @Component({
   selector: 'app-create-ticket',
@@ -15,7 +16,7 @@ export class CreateTicketComponent implements OnInit {
   ticketTitle: string;
   ticketDesc: string;
 
-  constructor(private ticketService: TicketService) { 
+  constructor(private logService: LogService, private ticketService: TicketService) { 
   }
 
   ngOnInit(): void {
@@ -29,10 +30,11 @@ export class CreateTicketComponent implements OnInit {
 
     this.ticketService.postTicket(this.ticket)
     .subscribe(data => {
-        console.log(data);
+        this.logService.log(this.className, data);
+        
         // notify the service that the ticket list has changed
         this.ticketService.announceTicketsUpdated("Tickets updated - new record");
-    }, error => console.log(error));;
+    }, error => this.logService.log(this.className, error));;
   }
 
 }

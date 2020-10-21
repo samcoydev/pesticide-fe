@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { TicketService } from '../../services/ticket.service';
 import { Ticket } from '../../models/ticket';
 import { ActivatedRoute } from '@angular/router';
+import { LogService } from '../../services/log.service';
 
 @Component({
   selector: 'app-ticket',
@@ -13,12 +14,12 @@ export class TicketComponent implements OnInit {
 
   ticket: Ticket;
 
-  constructor(private route: ActivatedRoute, private ticketService: TicketService) { }
+  constructor(private logService: LogService, private route: ActivatedRoute, private ticketService: TicketService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(routeParams => {
       const id = +this.route.snapshot.paramMap.get('ticketId');
-      console.log('ticket id: ', id);
+      this.logService.log(this.className, 'ticket id: ' + id)
 
       if (id >0) {
         this.getTicket(id);

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Ticket } from '../models/ticket';
+import { LogService } from '../services/log.service';
 
 import { Observable, of, from, Subject } from 'rxjs';
 
@@ -11,7 +12,7 @@ export class TicketService {
   private url = 'http://localhost:3000/api/v1/ticket';
   public className = '[TicketService] ';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private logService: LogService, private httpClient: HttpClient) { }
   
   // Set up a way to advertise to observers that something happened
   private ticketsUpdatedSource = new Subject<string>();
@@ -31,7 +32,6 @@ export class TicketService {
   }
 
   postTicket(ticket: Ticket): Observable<Ticket> {
-    console.log('test', ticket);
     return this.httpClient.post<Ticket>(this.url, ticket);
   }
 

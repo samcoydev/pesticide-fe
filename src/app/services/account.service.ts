@@ -27,7 +27,7 @@ export class AccountService {
   }
 
   login(username, password) {
-    this.logService.log('Logging in');
+    this.logService.log(this.className, 'Logging in as: ' + username);
     return this.httpClient.post<User>(this.url + '/users/authenticate', { username, password})
       .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -39,7 +39,7 @@ export class AccountService {
 
   logout() {
     // remove user from local storage and set current user to null
-    this.logService.log('Logged out');
+    this.logService.log(this.className, 'Logged out');
     localStorage.removeItem('user');
     this.userSubject.next(null);
     this.router.navigate(['/account/login']);

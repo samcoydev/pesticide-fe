@@ -5,7 +5,10 @@ import { Injectable } from '@angular/core';
 })
 export class LogService {
   public className = '[LogService] ';
-  log(msg: any) {
-    console.log(new Date() + ": " + JSON.stringify(msg));
+
+  log(className: string, msg: any) {
+    let _timeStamp = new Date();
+
+    console.log(className + _timeStamp.toDateString() + ' ' + JSON.stringify(msg));
   }
 }
