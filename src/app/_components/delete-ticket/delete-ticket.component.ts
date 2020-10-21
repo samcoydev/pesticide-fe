@@ -9,6 +9,7 @@ import { Ticket } from '../../models/ticket';
   styleUrls: ['./delete-ticket.component.css']
 })
 export class DeleteTicketComponent implements OnInit {
+  public className = '[DeleteTicketComponent] ';
 
   ticket: Ticket;
   ticketId: number;

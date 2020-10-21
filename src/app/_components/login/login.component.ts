@@ -12,6 +12,7 @@ import { ReturnStatement } from '@angular/compiler';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  public className = '[LoginComponent] ';
 
   form: FormGroup;
   loading = false;

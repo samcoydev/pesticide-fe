@@ -10,6 +10,7 @@ import { AccountService } from '../../services/account.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  public className = '[RegisterComponent] ';
   form: FormGroup;
   loading = false;
   submitted = false;

@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs'; // how we listen for events...
   styleUrls: ['./ticket-list.component.css']
 })
 export class TicketListComponent implements OnInit {
+  public className = '[TicketListComponent] ';
 
   tickets: Ticket[] = [];
 

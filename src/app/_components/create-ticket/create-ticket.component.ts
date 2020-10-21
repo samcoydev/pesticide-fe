@@ -9,6 +9,7 @@ import { TicketService } from '../../services/ticket.service';
   styleUrls: ['./create-ticket.component.css']
 })
 export class CreateTicketComponent implements OnInit {
+  public className = '[CreateTicketComponent] ';
 
   ticket;
   ticketTitle: string;

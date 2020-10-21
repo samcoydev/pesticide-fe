@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { LogService } from '../services/log.service'
 
 import { User } from '../models/user';
 
@@ -11,11 +12,12 @@ import { User } from '../models/user';
 })
 export class AccountService {
   private url = 'http://localhost:3000/api/v1';
+  public className = '[AccountService] ';
 
   private userSubject: BehaviorSubject<User>;
   public user: Observable<User>;
 
-  constructor(private router: Router, private httpClient: HttpClient) {
+  constructor(private router: Router, private httpClient: HttpClient, private logService: LogService) {
     this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
     this.user = this.userSubject.asObservable();
   }
@@ -25,6 +27,7 @@ export class AccountService {
   }
 
   login(username, password) {
+    this.logService.log('Logging in');
     return this.httpClient.post<User>(this.url + '/users/authenticate', { username, password})
       .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -36,7 +39,7 @@ export class AccountService {
 
   logout() {
     // remove user from local storage and set current user to null
-    console.log('logged out');
+    this.logService.log('Logged out');
     localStorage.removeItem('user');
     this.userSubject.next(null);
     this.router.navigate(['/account/login']);

@@ -7,6 +7,7 @@ import { AccountService } from '../services/account.service';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
+    public className = '[ErrorInterceptor] ';
     constructor(private accountService: AccountService) {}
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

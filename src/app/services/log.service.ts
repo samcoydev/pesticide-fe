@@ -4,6 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class LogService {
-
-  constructor() { }
+  public className = '[LogService] ';
+  log(msg: any) {
+    console.log(new Date() + ": " + JSON.stringify(msg));
+  }
 }

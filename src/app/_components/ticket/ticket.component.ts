@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./ticket.component.css']
 })
 export class TicketComponent implements OnInit {
+  public className = '[TicketComponent] ';
 
   ticket: Ticket;
 

@@ -13,6 +13,7 @@ import { DeleteTicketComponent } from './_components/delete-ticket/delete-ticket
 import { NavComponent } from './_components/nav/nav.component';
 
 import { ErrorInterceptor } from './_helpers/error.interceptor'
+import { LogService } from './services/log.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ErrorInterceptor } from './_helpers/error.interceptor'
     FormsModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    LogService
   ],
   bootstrap: [AppComponent]
 })

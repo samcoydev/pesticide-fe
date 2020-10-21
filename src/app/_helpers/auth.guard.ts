@@ -7,6 +7,7 @@ import { AccountService } from '../services/account.service';
     providedIn: 'root'
   })
 export class AuthGuard implements CanActivate {
+    public className = '[AuthGuard] ';
 
     constructor(private router: Router, private accountService: AccountService) {};
 

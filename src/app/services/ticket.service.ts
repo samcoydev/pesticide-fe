@@ -9,6 +9,7 @@ import { Observable, of, from, Subject } from 'rxjs';
 })
 export class TicketService {
   private url = 'http://localhost:3000/api/v1/ticket';
+  public className = '[TicketService] ';
 
   constructor(private httpClient: HttpClient) { }
   
