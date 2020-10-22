@@ -5,5 +5,5 @@ export class Ticket {
     title: string;
     description: string;
     timestamp: Date;
-    assignedUser: User;
+    assignedUsername: string;
 }
