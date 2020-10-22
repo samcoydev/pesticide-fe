@@ -7,8 +7,14 @@ export class LogService {
   public className = '[LogService] ';
 
   log(className: string, msg: any) {
-    let _timeStamp = new Date();
+    console.log(className + JSON.stringify(msg)+ ' [' + new Date().toDateString() + '] ')
+  }
 
-    console.log(className + _timeStamp.toDateString() + ' ' + JSON.stringify(msg));
+  error(className: string, msg: any) {
+    console.error(className + JSON.stringify(msg)+ ' [' + new Date().toDateString() + '] ')
+  }
+
+  warn(className: string, msg: any) {
+    console.warn(className + JSON.stringify(msg)+ ' [' + new Date().toDateString() + '] ')
   }
 }
