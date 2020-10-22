@@ -11,14 +11,14 @@ export class LogService {
 
   log(className: string, msg: any) {
     if (!this.prodMode)
-      console.log(className + JSON.stringify(msg)+ ' [' + new Date().toDateString() + '] ')
+      console.log(className + ' [' + new Date().toDateString() + '] ' + JSON.stringify(msg))
   }
 
   error(className: string, msg: any) {
-    console.error(className + JSON.stringify(msg)+ ' [' + new Date().toDateString() + '] ')
+    console.error(className + ' [' + new Date().toDateString() + '] ' + JSON.stringify(msg))
   }
 
   warn(className: string, msg: any) {
-    console.warn(className + JSON.stringify(msg)+ ' [' + new Date().toDateString() + '] ')
+    console.warn(className + ' [' + new Date().toDateString() + '] ' + JSON.stringify(msg))
   }
 }
