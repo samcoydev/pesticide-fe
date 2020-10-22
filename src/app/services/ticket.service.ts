@@ -4,12 +4,13 @@ import { Ticket } from '../models/ticket';
 import { LogService } from '../services/log.service';
 
 import { Observable, of, from, Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TicketService {
-  private url = 'http://localhost:3000/api/v1/ticket';
+  private url = environment.apiUrl + '/ticket';
   public className = '[TicketService] ';
 
   constructor(private logService: LogService, private httpClient: HttpClient) { }

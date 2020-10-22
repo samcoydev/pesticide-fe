@@ -20,6 +20,8 @@ export class TicketListComponent implements OnInit {
   subscription: Subscription;
 
   ngOnInit(): void {
+    this.logService.log(this.className, "test");
+
     // set up the listener... the subscription here is an event listening object
     this.subscription = this.ticketService.ticketsUpdated$.subscribe(message => {
       this.getTickets();

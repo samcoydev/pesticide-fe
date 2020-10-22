@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { LogService } from '../services/log.service'
+import { environment } from '../../environments/environment'
 
 import { User } from '../models/user';
 
@@ -11,7 +12,7 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class AccountService {
-  private url = 'http://localhost:3000/api/v1';
+  private url = environment.apiUrl;
   public className = '[AccountService] ';
 
   private userSubject: BehaviorSubject<User>;
