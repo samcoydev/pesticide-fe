@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { AccountService } from './services/account.service';
+import { LogService } from './services/log.service';
+import { User } from './models/user';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +12,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'pesticide-fe';
+  fromName = '[AppComponent] ';
+  currentUser: User;
+
+  constructor(
+    private log: LogService,
+    private router: Router,
+    private accountService: AccountService
+  ) {
+    this.accountService.user.subscribe(x => this.currentUser = x);
+    this.logout();
+  }
+
+logout() {
+    this.accountService.logout();
+    this.router.navigate(['/login']);
+}
 }

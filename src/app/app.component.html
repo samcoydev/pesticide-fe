@@ -1,10 +1,10 @@
 
 <div class="content" role="main">
-  <app-nav></app-nav>
+  <app-nav *ngIf="currentUser"></app-nav>
 
   <!-- Main row -->
   <div class="row">
-    <div class="col-3">
+    <div class="col-3" *ngIf="currentUser">
       <app-ticket-list></app-ticket-list>
     </div>
     <div class="col-9">
@@ -14,7 +14,7 @@
  <!-- when you click a ticket it should just router link -->
   
   <!-- Footer -->
-  <footer class="page-footer">
+  <footer class="page-footer" *ngIf="currentUser">
     <div class="text-white bg-dark">
       Copyright stuff. Contact me. Whatever.
     </div>
