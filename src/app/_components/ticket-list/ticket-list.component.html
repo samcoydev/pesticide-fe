@@ -1,4 +1,4 @@
-<p-table class="table table-bordered" [value]="tickets">
+<p-table class="table table-bordered table-hover" [value]="tickets">
     <ng-template pTemplate="header">
         <tr>
             <th pSortableColumn="ID">ID <p-sortIcon field="ID"></p-sortIcon></th>
@@ -6,7 +6,7 @@
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-ticket>
-        <tr>
+        <tr routerLink="/ticket/{{ticket.ID}}">
             <td>{{ticket.ID}}</td>
             <td>{{ticket.title}}</td>
         </tr>
