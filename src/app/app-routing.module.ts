@@ -13,7 +13,7 @@ import { AuthGuard } from '../app/_helpers/auth.guard';
 const accountModule = () => import('./account/account.module').then(x => x.AccountModule);
 
 const routes: Routes = [
-  { path: '', component: CreateTicketComponent, canActivate: [AuthGuard] },
+  { path: '', component: TicketListComponent, canActivate: [AuthGuard] },
 
   { path: 'ticket-list', component: TicketListComponent, canActivate: [AuthGuard] },
   { path: 'ticket', component: TicketComponent, canActivate: [AuthGuard] },
