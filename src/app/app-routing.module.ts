@@ -15,6 +15,7 @@ const accountModule = () => import('./account/account.module').then(x => x.Accou
 const routes: Routes = [
   { path: '', component: CreateTicketComponent, canActivate: [AuthGuard] },
 
+  { path: 'ticket-list', component: TicketListComponent, canActivate: [AuthGuard] },
   { path: 'ticket', component: TicketComponent, canActivate: [AuthGuard] },
   { path: 'ticket/:ticketId', component: TicketComponent, canActivate: [AuthGuard] }, 
   { path: 'create-ticket', component: CreateTicketComponent, canActivate: [AuthGuard] },

@@ -21,11 +21,5 @@ export class AppComponent {
     private accountService: AccountService
   ) {
     this.accountService.user.subscribe(x => this.currentUser = x);
-    this.logout();
   }
-
-logout() {
-    this.accountService.logout();
-    this.router.navigate(['/login']);
-}
 }
