@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
     
-    this.accountService.logout();
+    this.accountService.resetUser();
   }
   
   get f() { return this.form.controls; }

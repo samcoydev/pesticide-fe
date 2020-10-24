@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AccountService } from '../../services/account.service';
-import { ReturnStatement } from '@angular/compiler';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-login',
@@ -18,13 +18,16 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   error: '';
+  currentUser: User;
 
   constructor(
     private accountService: AccountService,
     private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder
-    ) { }
+    ) {
+      this.accountService.user.subscribe(x => this.currentUser = x);
+    }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -32,7 +35,7 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
 
-    this.accountService.logout();
+    this.accountService.resetUser();
   }
 
   get f() { return this.form.controls; }

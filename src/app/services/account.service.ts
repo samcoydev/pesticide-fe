@@ -46,6 +46,13 @@ export class AccountService {
     this.router.navigate(['/account/login']);
   }
 
+  resetUser() {
+    // remove user from local storage and set current user to null
+    this.logService.log(this.className, 'Reset');
+    localStorage.removeItem('user');
+    this.userSubject.next(null);
+  }
+
   register(user: User) {
     return this.httpClient.post(this.url + '/users/register', user);
   }
