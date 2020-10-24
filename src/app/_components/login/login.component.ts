@@ -5,7 +5,7 @@ import { first } from 'rxjs/operators';
 
 import { AccountService } from '../../services/account.service';
 import { User } from '../../models/user';
-import {trigger, style, animate, transition} from '@angular/animations';
+import {trigger, style, animate, transition, group} from '@angular/animations';
 
 @Component({
   selector: 'app-login',
@@ -14,8 +14,8 @@ import {trigger, style, animate, transition} from '@angular/animations';
   animations: [
     trigger('fade', [ 
       transition('void => *', [
-        style({ opacity: 0 }), 
-        animate(1000, style({opacity: 1}))
+        style({ opacity: 0, transform: 'translateY(-10%)' }), 
+        animate(1000, style({opacity: 1, transform: 'translateY(0%)'}))
       ]) 
     ])
   ]
