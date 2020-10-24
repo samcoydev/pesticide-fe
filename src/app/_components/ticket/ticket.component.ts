@@ -3,11 +3,20 @@ import { TicketService } from '../../services/ticket.service';
 import { Ticket } from '../../models/ticket';
 import { ActivatedRoute } from '@angular/router';
 import { LogService } from '../../services/log.service';
+import {trigger, style, animate, transition, state} from '@angular/animations';
 
 @Component({
   selector: 'app-ticket',
   templateUrl: './ticket.component.html',
-  styleUrls: ['./ticket.component.css']
+  styleUrls: ['./ticket.component.css'],
+  animations: [
+    trigger('stretch', [
+      transition('void => *', [
+        style({ opacity: 0, width:'0%' }),
+        animate(500, style({opacity: 1, width:'100%'}))
+      ])
+    ]),
+  ]
 })
 export class TicketComponent implements OnInit {
   public className = '[TicketComponent] ';

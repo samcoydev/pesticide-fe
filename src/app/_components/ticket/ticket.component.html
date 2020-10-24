@@ -1,12 +1,13 @@
 <div *ngIf='ticket != null'>
-    <div class="row col-12 divider">
+    <div class="row col-12">
         <h1>{{ ticket.title }}</h1>
-        <p> ID: {{ticket.ID}}</p>
+        <h1 class="text-muted" style="margin-left: 20px;"># {{ticket.ID}}</h1>
     </div>
+    <div class="row col-12 divider" @stretch></div>
     <div class="row col-6">
-        {{ ticket.description }}
+        <p class="text-dark">{{ ticket.description }}</p>
     </div>
-    <div class="row">
+    <div class="row col-12">
         <p>{{ ticket.timestamp | date }}</p>
     </div>
 </div>
