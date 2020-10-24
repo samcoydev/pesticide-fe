@@ -16,6 +16,7 @@ import { ErrorInterceptor } from './_helpers/error.interceptor'
 import { LogService } from './services/log.service';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ButtonModule } from 'primeng/button';
     TicketComponent,
     CreateTicketComponent,
     DeleteTicketComponent,
-    NavComponent
+    NavComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
