@@ -5,3 +5,9 @@
     bottom: 0;
     position: bottom;
 }
+.no-padding {
+    padding: 0;
+}
+.bac {
+    background-color: lime;
+}
