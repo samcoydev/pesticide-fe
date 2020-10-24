@@ -7,6 +7,7 @@ import { TicketComponent } from './_components/ticket/ticket.component';
 
 import { CreateTicketComponent } from './_components/create-ticket/create-ticket.component';
 import { DeleteTicketComponent } from './_components/delete-ticket/delete-ticket.component';
+import { ProfileComponent } from './_components/profile/profile.component';
 
 import { AuthGuard } from '../app/_helpers/auth.guard';
 
@@ -20,6 +21,8 @@ const routes: Routes = [
   { path: 'ticket/:ticketId', component: TicketComponent, canActivate: [AuthGuard] }, 
   { path: 'create-ticket', component: CreateTicketComponent, canActivate: [AuthGuard] },
   { path: 'delete-ticket', component: DeleteTicketComponent, canActivate: [AuthGuard] },
+
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
 
   { path: 'account', loadChildren: accountModule },
 

@@ -19,6 +19,7 @@ import { ButtonModule } from 'primeng/button';
 import { SidebarComponent } from './_components/sidebar/sidebar.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProfileComponent } from './_components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CreateTicketComponent,
     DeleteTicketComponent,
     NavComponent,
-    SidebarComponent
+    SidebarComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
