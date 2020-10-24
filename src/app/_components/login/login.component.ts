@@ -5,11 +5,20 @@ import { first } from 'rxjs/operators';
 
 import { AccountService } from '../../services/account.service';
 import { User } from '../../models/user';
+import {trigger, style, animate, transition} from '@angular/animations';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  animations: [
+    trigger('fade', [ 
+      transition('void => *', [
+        style({ opacity: 0 }), 
+        animate(1000, style({opacity: 1}))
+      ]) 
+    ])
+  ]
 })
 export class LoginComponent implements OnInit {
   public className = '[LoginComponent] ';
