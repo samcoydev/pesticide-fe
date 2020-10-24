@@ -14,6 +14,8 @@ import { NavComponent } from './_components/nav/nav.component';
 
 import { ErrorInterceptor } from './_helpers/error.interceptor'
 import { LogService } from './services/log.service';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { LogService } from './services/log.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    TableModule,
+    ButtonModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

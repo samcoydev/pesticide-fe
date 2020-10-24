@@ -1,4 +1,4 @@
-<h2>List of all tickets.</h2>
+<!--<h2>List of all tickets.</h2>
 <div class="ticket-content">
     <ul *ngFor="let ticket of tickets">
         <li class="ticket">
@@ -9,4 +9,20 @@
     </ul>
     <a class="nav-link" routerLink="/create-ticket">Create Ticket</a>
     <button class="btn btn-light" (click)="getTickets()">Refresh</button>
-</div>
+</div>-->
+
+
+<p-table class="table table-bordered" [value]="tickets">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="ID">ID <p-sortIcon field="ID"></p-sortIcon></th>
+            <th pSortableColumn="title">Title <p-sortIcon field="title"></p-sortIcon></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-ticket>
+        <tr>
+            <td>{{ticket.ID}}</td>
+            <td>{{ticket.title}}</td>
+        </tr>
+    </ng-template>
+</p-table>
