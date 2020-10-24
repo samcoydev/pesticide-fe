@@ -1,3 +1,10 @@
-.divider {
+.horizontal-divider {
     border-bottom: thin solid lightslategray;
+}
+.vertical-divider {
+    border-left: thin solid lightslategray;
+}
+.page-footer {
+    bottom: 0;
+    position: bottom;
 }

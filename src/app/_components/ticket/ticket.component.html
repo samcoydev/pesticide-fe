@@ -1,13 +1,23 @@
 <div *ngIf='ticket != null'>
     <div class="row col-12">
-        <h1>{{ ticket.title }}</h1>
-        <h1 class="text-muted" style="margin-left: 20px;"># {{ticket.ID}}</h1>
+        <div class="row col-10">
+            <h1>{{ ticket.title }}</h1>
+            <h1 class="text-muted" style="margin-left: 20px;"># {{ticket.ID}}</h1>
+        </div>
+        <div class="row col-2">
+            <h1 class="text-muted">{{ ticket.timestamp | date }}</h1>
+        </div>
     </div>
-    <div class="row col-12 divider" @stretch></div>
-    <div class="row col-6">
-        <p class="text-dark">{{ ticket.description }}</p>
-    </div>
+
+    <!-- Divider -->
+    <div class="row col-12 horizontal-divider" @hstretch></div>
+
     <div class="row col-12">
-        <p>{{ ticket.timestamp | date }}</p>
+        <div class="col-6">
+            <p class="text-dark">{{ ticket.description }}</p>
+        </div>
+        <div class="col-6 vertical-divider">
+            <p>Priority, Status, Other info</p>
+        </div>
     </div>
 </div>

@@ -10,10 +10,16 @@ import {trigger, style, animate, transition, state} from '@angular/animations';
   templateUrl: './ticket.component.html',
   styleUrls: ['./ticket.component.css'],
   animations: [
-    trigger('stretch', [
+    trigger('hstretch', [
       transition('void => *', [
         style({ opacity: 0, width:'0%' }),
         animate(500, style({opacity: 1, width:'100%'}))
+      ])
+    ]),
+    trigger('vstretch', [
+      transition('void => *', [
+        style({ opacity: 0, height:'0%' }),
+        animate(500, style({opacity: 1, height:'100%'}))
       ])
     ]),
   ]
