@@ -14,7 +14,6 @@ export class AppComponent {
   fromName = '[AppComponent] ';
 
   currentUser: User;
-  sidebarHidden: false;
 
   constructor(
     private log: LogService,
