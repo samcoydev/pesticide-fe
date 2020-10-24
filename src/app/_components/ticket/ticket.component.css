@@ -1,5 +1,4 @@
-.rounded {
-    border: thin solid lightslategray;
-    border-radius: 5px;
+.divider {
+    border-bottom: thin solid lightslategray;
     padding: 5px;
 }
