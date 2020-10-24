@@ -11,9 +11,10 @@ import { User } from './models/user';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'pesticide-fe';
   fromName = '[AppComponent] ';
+
   currentUser: User;
+  sidebarHidden: false;
 
   constructor(
     private log: LogService,

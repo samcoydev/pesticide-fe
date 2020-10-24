@@ -1,17 +1,15 @@
-
 <div class="content" role="main">
   <app-nav *ngIf="currentUser"></app-nav>
 
   <!-- Main row -->
   <div class="row">
-    <div class="col-2" *ngIf="currentUser">
+    <div class="col-2 no-padding" *ngIf="currentUser">
       <app-sidebar></app-sidebar>
     </div>
     <div class="col-10">
       <router-outlet></router-outlet>
     </div>
   </div>
- <!-- when you click a ticket it should just router link -->
   
   <!-- Footer -->
   <footer class="page-footer" *ngIf="currentUser">

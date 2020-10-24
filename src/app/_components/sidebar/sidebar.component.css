@@ -1,8 +1,10 @@
 .no-padding {
     padding: 0;
 }
-.wrapper {
-    display: flex;
-    width: 100%;
-    align-items: stretch;
+
+#sidebar {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    transition: all 0.3s;
 }
