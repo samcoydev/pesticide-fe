@@ -16,6 +16,7 @@ import { ErrorInterceptor } from './_helpers/error.interceptor'
 import { LogService } from './services/log.service';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
+import { DropdownModule } from 'primeng/dropdown';
 import { SidebarComponent } from './_components/sidebar/sidebar.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -39,6 +40,7 @@ import { ProfileComponent } from './_components/profile/profile.component';
     FormsModule,
     TableModule,
     ButtonModule,
+    DropdownModule,
     BrowserAnimationsModule
   ],
   providers: [

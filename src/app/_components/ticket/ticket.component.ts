@@ -28,6 +28,7 @@ export class TicketComponent implements OnInit {
   public className = '[TicketComponent] ';
 
   ticket: Ticket;
+  prioritylevels: number[] = [1,2,3,4,5,6];
 
   constructor(private logService: LogService, private route: ActivatedRoute, private ticketService: TicketService) { }
 
@@ -47,6 +48,17 @@ export class TicketComponent implements OnInit {
       .subscribe(response => {
         this.ticket = response;
     });
-    
+  }
+
+  setPriority(priorityLevel: number) {
+    this.ticket.prioritylevel = priorityLevel;
+    this.ticketService.updateTicket(this.ticket)
+    .subscribe(
+        data => {
+            this.logService.log(this.className, data);
+        },
+        error => {
+            this.logService.error(this.className, error);
+        });;
   }
 }

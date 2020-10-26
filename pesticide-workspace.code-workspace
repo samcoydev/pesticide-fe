@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "..\\pesticide-be"
+		},
+		{
+			"path": "..\\fallsafe-client"
 		}
 	],
 	"settings": {}
