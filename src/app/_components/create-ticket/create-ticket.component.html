@@ -3,14 +3,53 @@
     <h3>Title</h3>
 </div>
 <div class="row col-6">
-    <input [(ngModel)]="ticketTitle" placeholder="type here.."/>
+    <input class="form-control" [(ngModel)]="ticketTitle" placeholder="type here.."/>
 </div>
 <div class="row col-6">
     <h3>Description</h3>
-    <textarea placeholder="type here.." class="form-control" [(ngModel)]="ticketDesc" rows="3"></textarea>
+    <textarea placeholder="type here.." class="form-control" [(ngModel)]="ticketDesc" rows="5" maxlength="500"></textarea>
+    <p>{{ticketDesc.length}} / 500</p>
 </div>
-<div *ngIf="ticketTitle != null">
-    <div *ngIf="ticketDesc != null">
-        <button class="btn btn-success" (click)="create()">Create</button>
+<div class="row col-6">
+    <div class="row">
+        <div class="col-6">
+            <div ngbDropdown class="d-inline-block">
+                <div class="form-group">
+                    <label for="priorityselect">Priority Level</label>
+                    <select class="form-control" id="priorityselect">
+                        <option (click)="setPriority(5)">None</option>
+                        <option (click)="setPriority(0)">Emergency</option>
+                        <option (click)="setPriority(1)">Very High</option>
+                        <option (click)="setPriority(2)">High</option>
+                        <option (click)="setPriority(3)">Medium</option>
+                        <option (click)="setPriority(4)">Low</option>
+                    </select>
+                </div>  
+            </div>
+        </div>
+        <div class="col-6">
+            <label>Dead-line</label>
+            <form class="form-inline">
+                <div class="form-group">
+                <div class="input-group">
+                    <input class="form-control" placeholder="yyyy-mm-dd"
+                        name="dp" [(ngModel)]="deadline" ngbDatepicker #d="ngbDatepicker"
+                        #dp
+                        [displayMonths]="1"
+                        navigation="arrows">
+                    <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i class="pi pi-calendar"></i></button>
+                    </div>
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="row col-6">
+    <div *ngIf="ticketTitle != null">
+        <div *ngIf="ticketDesc != null">
+            <button class="btn btn-success" (click)="create()">Create</button>
+        </div>
     </div>
 </div>

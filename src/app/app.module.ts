@@ -14,15 +14,17 @@ import { NavComponent } from './_components/nav/nav.component';
 
 import { ErrorInterceptor } from './_helpers/error.interceptor'
 import { LogService } from './services/log.service';
-import { TableModule } from 'primeng/table';
-import { ButtonModule } from 'primeng/button';
-import { DropdownModule } from 'primeng/dropdown';
 import { SidebarComponent } from './_components/sidebar/sidebar.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileComponent } from './_components/profile/profile.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PriorityPipe } from './priority.pipe';
+
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+import { DropdownModule } from 'primeng/dropdown';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { PriorityPipe } from './priority.pipe';
     TableModule,
     ButtonModule,
     DropdownModule,
+    CalendarModule,
     BrowserAnimationsModule,
     NgbModule
   ],
