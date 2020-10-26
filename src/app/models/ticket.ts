@@ -5,8 +5,9 @@ export class Ticket {
     title: string;
     description: string;
     timestamp: Date;
-    assignedUsername: string;
+    assigneduseremail: string;
     creator: string;
     prioritylevel: number;
+    deadline: Date;
     status: number;
 }

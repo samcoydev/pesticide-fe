@@ -6,16 +6,19 @@ import { LogService } from '../../services/log.service';
 import { AccountService } from 'src/app/services/account.service';
 import { User } from 'src/app/models/user';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgbDateAdapter, NgbDateNativeAdapter } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-create-ticket',
   templateUrl: './create-ticket.component.html',
-  styleUrls: ['./create-ticket.component.css']
+  styleUrls: ['./create-ticket.component.css'],
+  providers: [{provide: NgbDateAdapter, useClass: NgbDateNativeAdapter}]
 })
 export class CreateTicketComponent implements OnInit {
   public className = '[CreateTicketComponent] ';
 
   form: FormGroup;
+  submitted = false;
 
   ticket: Ticket;
   ticketTitle: string;
@@ -38,18 +41,24 @@ export class CreateTicketComponent implements OnInit {
   ngOnInit(): void {
     this.ticket = new Ticket;
     this.form = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]]
-    })
+      title: ['', Validators.required],
+      description: ['', [Validators.required, Validators.maxLength(500)]],
+      assigneduseremail: ['', [Validators.required, Validators.email]]
+    });
   }
 
   get f() { return this.form.controls; }
-  
+
   create() {
-    this.ticket.title = this.ticketTitle;
-    this.ticket.description = this.ticketDesc;
+    this.submitted = true;
+    if (this.form.invalid) {
+      return;
+    }
+    this.ticket = this.form.value;
+    this.ticket.creator = this.currentUser.email;
     this.ticket.timestamp = new Date();
     this.ticket.prioritylevel = this.priorityLevel;
-    this.ticket.creator = this.currentUser.email;
+    this.ticket.deadline = new Date(this.deadline);
     this.ticket.status = 0;
 
     this.ticketService.postTicket(this.ticket)
