@@ -5,5 +5,5 @@ export class Ticket {
     timestamp: Date;
     assignedUsername: string;
     prioritylevel: number;
-    closed: boolean;
+    status: number;
 }

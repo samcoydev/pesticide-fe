@@ -51,18 +51,15 @@ export class TicketComponent implements OnInit {
 
   setPriority(priorityLevel: number) {
     this.ticket.prioritylevel = priorityLevel;
-    this.ticketService.updateTicket(this.ticket)
-    .subscribe(
-        data => {
-            this.logService.log(this.className, data);
-        },
-        error => {
-            this.logService.error(this.className, "got an error" + error);
-    })
+    this.updateTicket();
   }
 
-  openCloseTicket() {
-    this.ticket.closed = !this.ticket.closed;
+  setStatus(statusLevel: number) {
+    this.ticket.status = statusLevel;
+    this.updateTicket();
+  }
+
+  updateTicket() {
     this.ticketService.updateTicket(this.ticket)
     .subscribe(
         data => {

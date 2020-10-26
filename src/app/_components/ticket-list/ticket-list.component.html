@@ -6,15 +6,23 @@
                     <th pSortableColumn="ID">ID <p-sortIcon field="id"></p-sortIcon></th>
                     <th pSortableColumn="title">Title <p-sortIcon field="title"></p-sortIcon></th>
                     <th pSortableColumn="prioritylevel">Priority <p-sortIcon field="prioritylevel"></p-sortIcon></th>
-                    <th pSortableColumn="closed">Closed <p-sortIcon field="closed"></p-sortIcon></th>
+                    <th pSortableColumn="status">Status <p-sortIcon field="status"></p-sortIcon></th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-ticket>
                 <tr routerLink="/ticket/{{ticket.ID}}">
                     <td>{{ticket.ID}}</td>
                     <td>{{ticket.title}}</td>
-                    <td>{{ticket.prioritylevel | priority}}</td>
-                    <td>{{ticket.closed}}</td>
+                    <td>
+                        <p *ngIf="ticket.prioritylevel == 0" class="text-danger">{{ticket.prioritylevel | priority}}</p>
+                        <p *ngIf="ticket.prioritylevel == 1" class="text-warning">{{ticket.prioritylevel | priority}}</p>
+                        <p *ngIf="ticket.prioritylevel >= 2">{{ticket.prioritylevel | priority}}</p>
+                    </td>
+                    <td>
+                        <p *ngIf="ticket.status == 0" class="text-danger">{{ticket.status | status}}</p>
+                        <p *ngIf="ticket.status == 1" class="text-warning">{{ticket.status | status}}</p>
+                        <p *ngIf="ticket.status == 2" class="text-success">{{ticket.status | status}}</p>
+                    </td>
                 </tr>
             </ng-template>
         </p-table>

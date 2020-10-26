@@ -37,8 +37,10 @@
             </div>
             <div class="row">
                 <div class="col-3">
-                    <button *ngIf="!this.ticket.closed" class="btn btn-danger" (click)="openCloseTicket()">Close Ticket</button>
-                    <button *ngIf="this.ticket.closed" class="btn btn-success" (click)="openCloseTicket()">Re-open Ticket</button>
+                    <button class="btn btn-outline-primary" (click)="setStatus(1)">Work on Ticket</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-outline-danger" (click)="setStatus(2)">Close Ticket</button>
                 </div>
             </div>
         </div>
