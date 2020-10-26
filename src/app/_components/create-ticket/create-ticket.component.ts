@@ -3,7 +3,6 @@ import { Ticket } from '../../models';
 
 import { TicketService } from '../../services/ticket.service';
 import { LogService } from '../../services/log.service';
-import { CalendarModule } from 'primeng/calendar';
 
 @Component({
   selector: 'app-create-ticket',
@@ -31,6 +30,7 @@ export class CreateTicketComponent implements OnInit {
     this.ticket.description = this.ticketDesc;
     this.ticket.timestamp = new Date();
     this.ticket.prioritylevel = this.priorityLevel;
+    this.ticket.closed = false;
 
     this.ticketService.postTicket(this.ticket)
     .subscribe(data => {

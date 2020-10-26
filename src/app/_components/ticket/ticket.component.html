@@ -18,19 +18,27 @@
         </div>
         <div class="col-6 vertical-divider">
             <p>Priority, Status, Other info</p>
-            <p>{{ticket.prioritylevel | priority}}</p>
             <div class="row">
-                <div class="col">
-                  <div ngbDropdown class="d-inline-block">
-                    <button class="btn btn-outline-success" id="dropdownBasic1" ngbDropdownToggle>Priority Level</button>
-                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                      <button ngbDropdownItem (click)="setPriority(0)">Emergency</button>
-                      <button ngbDropdownItem (click)="setPriority(1)">Very High</button>
-                      <button ngbDropdownItem (click)="setPriority(2)">High</button>
-                      <button ngbDropdownItem (click)="setPriority(3)">Medium</button>
-                      <button ngbDropdownItem (click)="setPriority(4)">Low</button>
-                      <button ngbDropdownItem (click)="setPriority(5)">None</button>
+                <div class="col-3">
+                    <div ngbDropdown class="d-inline-block">
+                        <div class="form-group">
+                            <label for="priorityselect">Priority Level</label>
+                            <select class="form-control" id="priorityselect">
+                                <option (click)="setPriority(5)">None</option>
+                                <option (click)="setPriority(0)">Emergency</option>
+                                <option (click)="setPriority(1)">Very High</option>
+                                <option (click)="setPriority(2)">High</option>
+                                <option (click)="setPriority(3)">Medium</option>
+                                <option (click)="setPriority(4)">Low</option>
+                            </select>
+                        </div>  
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <button *ngIf="!this.ticket.closed" class="btn btn-danger" (click)="openCloseTicket()">Close Ticket</button>
+                    <button *ngIf="this.ticket.closed" class="btn btn-success" (click)="openCloseTicket()">Re-open Ticket</button>
                 </div>
             </div>
         </div>

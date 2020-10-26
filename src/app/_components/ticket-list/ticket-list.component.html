@@ -6,6 +6,7 @@
                     <th pSortableColumn="ID">ID <p-sortIcon field="id"></p-sortIcon></th>
                     <th pSortableColumn="title">Title <p-sortIcon field="title"></p-sortIcon></th>
                     <th pSortableColumn="prioritylevel">Priority <p-sortIcon field="prioritylevel"></p-sortIcon></th>
+                    <th pSortableColumn="closed">Closed <p-sortIcon field="closed"></p-sortIcon></th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-ticket>
@@ -13,6 +14,7 @@
                     <td>{{ticket.ID}}</td>
                     <td>{{ticket.title}}</td>
                     <td>{{ticket.prioritylevel | priority}}</td>
+                    <td>{{ticket.closed}}</td>
                 </tr>
             </ng-template>
         </p-table>

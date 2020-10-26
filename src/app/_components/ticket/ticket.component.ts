@@ -60,4 +60,16 @@ export class TicketComponent implements OnInit {
             this.logService.error(this.className, "got an error" + error);
     })
   }
+
+  openCloseTicket() {
+    this.ticket.closed = !this.ticket.closed;
+    this.ticketService.updateTicket(this.ticket)
+    .subscribe(
+        data => {
+            this.logService.log(this.className, data);
+        },
+        error => {
+            this.logService.error(this.className, "got an error" + error);
+    })
+  }
 }
