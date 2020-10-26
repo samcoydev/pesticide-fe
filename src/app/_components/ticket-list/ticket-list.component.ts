@@ -39,4 +39,8 @@ export class TicketListComponent implements OnInit {
       });
   }
 
+  show() {
+    console.log(this.tickets);
+  }
+
 }

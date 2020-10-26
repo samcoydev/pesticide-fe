@@ -21,6 +21,8 @@ import { SidebarComponent } from './_components/sidebar/sidebar.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileComponent } from './_components/profile/profile.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PriorityPipe } from './priority.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { ProfileComponent } from './_components/profile/profile.component';
     DeleteTicketComponent,
     NavComponent,
     SidebarComponent,
-    ProfileComponent
+    ProfileComponent,
+    PriorityPipe
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { ProfileComponent } from './_components/profile/profile.component';
     TableModule,
     ButtonModule,
     DropdownModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgbModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

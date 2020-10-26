@@ -18,18 +18,21 @@
         </div>
         <div class="col-6 vertical-divider">
             <p>Priority, Status, Other info</p>
-
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Dropdown button
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
+            <p>{{ticket.prioritylevel | priority}}</p>
+            <div class="row">
+                <div class="col">
+                  <div ngbDropdown class="d-inline-block">
+                    <button class="btn btn-outline-success" id="dropdownBasic1" ngbDropdownToggle>Priority Level</button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                      <button ngbDropdownItem (click)="setPriority(0)">Emergency</button>
+                      <button ngbDropdownItem (click)="setPriority(1)">Very High</button>
+                      <button ngbDropdownItem (click)="setPriority(2)">High</button>
+                      <button ngbDropdownItem (click)="setPriority(3)">Medium</button>
+                      <button ngbDropdownItem (click)="setPriority(4)">Low</button>
+                      <button ngbDropdownItem (click)="setPriority(5)">None</button>
+                    </div>
+                  </div>
                 </div>
-            </div>
-
         </div>
     </div>
 </div>
