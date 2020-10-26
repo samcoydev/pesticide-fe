@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PipeTransform }  from '@angular/core';
 import { TicketService } from '../../services/ticket.service'
 import { Ticket } from '../../models'
 import { LogService } from '../../services/log.service'
 
 import { Subscription } from 'rxjs'; // how we listen for events...
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-ticket-list',
@@ -14,8 +17,12 @@ export class TicketListComponent implements OnInit {
   public className = '[TicketListComponent] ';
 
   tickets: Ticket[] = [];
+  tickets$: Observable<Ticket[]>;
+  filter = new FormControl('');
 
-  constructor(private logService: LogService, private ticketService: TicketService) { }
+  constructor(private logService: LogService, private ticketService: TicketService) {
+    this.tickets$ = this.filter.valueChanges.pipe(startWith(''), map(text => this.search(text)))
+  }
 
   subscription: Subscription;
 
@@ -39,8 +46,11 @@ export class TicketListComponent implements OnInit {
       });
   }
 
-  show() {
-    console.log(this.tickets);
+  search(text: string): Ticket[] {
+    return this.tickets.filter(ticket => {
+      const term = text.toLowerCase();
+      return ticket.title.toLowerCase().includes(term)
+    });
   }
 
 }
