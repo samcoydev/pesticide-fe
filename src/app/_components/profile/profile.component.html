@@ -1,6 +1,58 @@
 <div class="row">
-    <h1>Hello, {{ user.firstname }}</h1>
+    <div class="col-12">
+        <div class="row">
+            <h1>Hello, {{ user.firstname }}</h1>
+        </div>
+        <div class="row">
+            <h2 class="text-muted">Here is your profile.</h2>
+        </div>
+    </div>
 </div>
 <div class="row">
-    <h2 class="text-muted">Here is your profile.</h2>
+    <div class="col-6 no-padding">
+        <div class="card">
+            <h3 class="card-header">User Details</h3>
+            <div class="card-body">
+                <label for="email">Email Address</label>
+                <p name="email">{{user.email}}</p>
+                <label for="username">Username</label>
+                <p name="username">{{user.username}}</p>
+                <a routerLink="/users/edit">Change Password</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 no-padding">
+        <div class="card">
+            <h3 class="card-header">Assigned Tickets</h3>
+            <div class="card-body">
+                <p-table class="table table-hover table-sm" [value]="assignedTickets">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th pSortableColumn="title">Title <p-sortIcon field="title"></p-sortIcon></th>
+                            <th pSortableColumn="prioritylevel">Priority <p-sortIcon field="prioritylevel"></p-sortIcon></th>
+                            <th pSortableColumn="status">Status <p-sortIcon field="status"></p-sortIcon></th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-ticket>
+                        <tr routerLink="/ticket/{{ticket.ID}}">
+                            <td>{{ticket.title}}</td>
+                            <td>
+                                <p *ngIf="ticket.prioritylevel == 0" class="text-danger">{{ticket.prioritylevel | priority}}</p>
+                                <p *ngIf="ticket.prioritylevel == 1" class="text-warning">{{ticket.prioritylevel | priority}}</p>
+                                <div *ngIf="ticket.prioritylevel >= 2">
+                                    <p *ngIf="ticket.prioritylevel != 5">{{ticket.prioritylevel | priority}}</p>
+                                    <p *ngIf="ticket.prioritylevel == 5" class="text-muted">{{ticket.prioritylevel | priority}}</p>
+                                </div>
+                            </td>
+                            <td>
+                                <p *ngIf="ticket.status == 0" class="text-secondary">{{ticket.status | status}}</p>
+                                <p *ngIf="ticket.status == 1" class="text-warning">{{ticket.status | status}}</p>
+                                <p *ngIf="ticket.status == 2" class="text-muted">{{ticket.status | status}}</p>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
 </div>

@@ -7,6 +7,7 @@ import { LogService } from '../services/log.service'
 import { environment } from '../../environments/environment'
 
 import { User } from '../models/user';
+import { Ticket } from '../models/ticket';
 
 @Injectable({
   providedIn: 'root'
@@ -70,10 +71,15 @@ export class AccountService {
     return this.httpClient.delete(this.url + '/' + `${id}`)
       .pipe(map(x => {
         // auto logout if the logged in user deleted their own record
-        if (id == this.userValue.id) {
+        if (id == this.userValue.ID) {
             this.logout();
         }
         return x;
       }));
+  }
+
+  getAssignedTickets(id: string) {
+    this.logService.log(this.className, "we got id:" + id);
+    return this.httpClient.get<Ticket[]>(this.url + '/users/' + `${id}` + '/tickets');
   }
 }

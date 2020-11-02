@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/models/user';
+import { User } from '../../models/user';
+import { Ticket } from '../../models/ticket';
 import { AccountService } from '../../services/account.service';
 
 @Component({
@@ -10,13 +11,18 @@ import { AccountService } from '../../services/account.service';
 export class ProfileComponent implements OnInit {
 
   user: User;
+  assignedTickets: Ticket[];
 
   constructor(
     private accountService: AccountService
   ) { }
 
   ngOnInit(): void {
-    this.accountService.user.subscribe(x => this.user = x);
+    this.accountService.user.subscribe(x => {
+      this.user = x;
+    });
+    console.log(this.user, this.user.ID);
+    this.accountService.getAssignedTickets(this.user.ID).subscribe(y => this.assignedTickets = y);
   }
 
 }
