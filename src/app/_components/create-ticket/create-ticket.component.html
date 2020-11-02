@@ -19,10 +19,12 @@
             </div>
             <div class="form-group">
                 <label for="assigneduseremail">Assign to</label>
-                <input type="text" formControlName="assigneduseremail" class="form-control" placeholder="email@address.com" [ngClass]="{ 'is-invalid': submitted && f.assigneduseremail.errors }" />
-                <div *ngIf="submitted && f.assigneduseremail.errors" class="invalid-feedback">
-                    <div *ngIf="f.assigneduseremail.errors.required">Email is required</div>
-                </div>
+                <select class="form-control">
+                    <option disabled selected>Select a user</option>
+                    <option *ngFor="let user of userList" (click)="assignUser(user)">
+                        {{user.username}} | {{user.email}}
+                    </option>
+                </select>
             </div>
             <div class="row">
                 <div ngbDropdown class="d-inline-block col-3">

@@ -25,9 +25,11 @@ export class CreateTicketComponent implements OnInit {
   ticketDesc: string;
   priorityLevel: number;
   ticketStatus: number;
+  assignedUsername: string;
   deadline: Date;
 
   currentUser: User;
+  userList: User[];
 
   constructor(
     private logService: LogService, 
@@ -36,14 +38,14 @@ export class CreateTicketComponent implements OnInit {
     private formBuilder: FormBuilder
     ) { 
       this.accountService.user.subscribe(x => this.currentUser = x);
+      this.accountService.getAll().subscribe(x => this.userList = x);
   }
 
   ngOnInit(): void {
     this.ticket = new Ticket;
     this.form = this.formBuilder.group({
       title: ['', Validators.required],
-      description: ['', [Validators.required, Validators.maxLength(500)]],
-      assigneduseremail: ['', [Validators.required, Validators.email]]
+      description: ['', [Validators.required, Validators.maxLength(500)]]
     });
   }
 
@@ -59,6 +61,7 @@ export class CreateTicketComponent implements OnInit {
     this.ticket.timestamp = new Date();
     this.ticket.prioritylevel = this.priorityLevel;
     this.ticket.deadline = new Date(this.deadline);
+    this.ticket.assignedusername = this.assignedUsername;
     this.ticket.status = 0;
 
     this.ticketService.postTicket(this.ticket)
@@ -74,8 +77,8 @@ export class CreateTicketComponent implements OnInit {
     this.priorityLevel = level;
   }
 
-  assignUser(email: string) {
-
+  assignUser(user: User) {
+    this.assignedUsername = user.username;
   }
 
 }
