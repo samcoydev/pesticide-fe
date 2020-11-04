@@ -1,3 +1,5 @@
+import { Role } from '../_helpers/role';
+
 export class User {
     ID: string;
     username: string;
@@ -5,6 +7,6 @@ export class User {
     firstname: string;
     lastname: string;
     email: string;
-    role: string;
+    role: Role;
     token: string;
 }
