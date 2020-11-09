@@ -26,7 +26,6 @@ import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
 import { StatusPipe } from './status.pipe';
-import { AdminOptionsComponent } from './_components/adminoptions/adminoptions.component';
 
 @NgModule({
   declarations: [
@@ -39,8 +38,7 @@ import { AdminOptionsComponent } from './_components/adminoptions/adminoptions.c
     SidebarComponent,
     ProfileComponent,
     PriorityPipe,
-    StatusPipe,
-    AdminOptionsComponent
+    StatusPipe
   ],
   imports: [
     BrowserModule,

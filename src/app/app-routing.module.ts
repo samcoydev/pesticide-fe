@@ -8,12 +8,12 @@ import { TicketComponent } from './_components/ticket/ticket.component';
 import { CreateTicketComponent } from './_components/create-ticket/create-ticket.component';
 import { DeleteTicketComponent } from './_components/delete-ticket/delete-ticket.component';
 import { ProfileComponent } from './_components/profile/profile.component';
-import { AdminOptionsComponent } from './_components/adminoptions/adminoptions.component';
 
 import { AuthGuard } from '../app/_helpers/auth.guard';
 import { Role } from '../app/_helpers/role';
 
 const accountModule = () => import('./account/account.module').then(x => x.AccountModule);
+const adminModule = () => import('./admin/admin.module').then(x => x.AdminModule);
 
 const routes: Routes = [
   { path: '', component: TicketListComponent, canActivate: [AuthGuard] },
@@ -23,11 +23,11 @@ const routes: Routes = [
   { path: 'ticket/:ticketId', component: TicketComponent, canActivate: [AuthGuard] }, 
   { path: 'create-ticket', component: CreateTicketComponent, canActivate: [AuthGuard] },
   { path: 'delete-ticket', component: DeleteTicketComponent, canActivate: [AuthGuard] },
-  { path: 'admin', component: AdminOptionsComponent, canActivate: [AuthGuard], data: { roles: [Role.Admin]}},
 
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
 
   { path: 'account', loadChildren: accountModule },
+  { path: 'admin', loadChildren: adminModule, canActivate: [AuthGuard], data: { roles: [Role.Admin]}},
 
   { path: '**', redirectTo: '' }
 ];
