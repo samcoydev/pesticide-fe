@@ -38,7 +38,7 @@ export class CreateTicketComponent implements OnInit {
     private formBuilder: FormBuilder
     ) { 
       this.accountService.user.subscribe(x => this.currentUser = x);
-      this.accountService.getAll().subscribe(x => this.userList = x);
+      this.accountService.getUsers().subscribe(x => this.userList = x);
   }
 
   ngOnInit(): void {

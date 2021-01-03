@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { LogService } from '../services/log.service'
 import { environment } from '../../environments/environment'
@@ -13,7 +13,7 @@ import { Ticket } from '../models/ticket';
   providedIn: 'root'
 })
 export class AccountService {
-  private url = environment.apiUrl;
+  private url = environment.apiUrl + '/users';
   public className = '[AccountService] ';
 
   private userSubject: BehaviorSubject<User>;
@@ -24,13 +24,16 @@ export class AccountService {
     this.user = this.userSubject.asObservable();
   }
 
+  private usersUpdatedSource = new Subject<string>();
+  usersUpdated$ = this.usersUpdatedSource.asObservable();
+
   public get userValue(): User {
     return this.userSubject.value;
   }
 
   login(username, password) {
     this.logService.log(this.className, 'Logging in as: ' + username);
-    return this.httpClient.post<User>(this.url + '/users/authenticate', { username, password})
+    return this.httpClient.post<User>(this.url + '/authenticate', { username, password})
       .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('user', JSON.stringify(user));
@@ -56,18 +59,18 @@ export class AccountService {
   }
 
   register(user: User) {
-    return this.httpClient.post(this.url + '/users/register', user);
+    return this.httpClient.post(this.url + '/register', user);
   }
 
-  getAll() {
-    return this.httpClient.get<User[]>(this.url + '/users');
+  getUsers() {
+    return this.httpClient.get<User[]>(this.url);
   }
 
-  getById(id: string) {
+  getUser(id: string) {
     return this.httpClient.get<User>(this.url + '/' + `${id}`);
   }
 
-  delete(id: string) {
+  deleteUser(id: string) {
     return this.httpClient.delete(this.url + '/' + `${id}`)
       .pipe(map(x => {
         // auto logout if the logged in user deleted their own record
@@ -80,6 +83,6 @@ export class AccountService {
 
   getAssignedTickets(id: string) {
     this.logService.log(this.className, "we got id:" + id);
-    return this.httpClient.get<Ticket[]>(this.url + '/users/' + `${id}` + '/tickets');
+    return this.httpClient.get<Ticket[]>(this.url + `${id}` + '/tickets');
   }
 }

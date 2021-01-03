@@ -1,1 +1,20 @@
-<p>user-list works!</p>
+<div class="row">
+    <div class="col-12 no-padding">
+        <p-table class="table table-hover table-sm table-bordered" [value]="users">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="ID">ID <p-sortIcon field="id"></p-sortIcon></th>
+                    <th pSortableColumn="username">Username <p-sortIcon field="username"></p-sortIcon></th>
+                    <th pSotrableColumn="role">Role <p-sortIcon field="role"></p-sortIcon></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-user>
+                <tr>
+                    <td>{{user.ID}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.role}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
