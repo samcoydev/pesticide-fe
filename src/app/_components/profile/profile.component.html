@@ -34,14 +34,14 @@
                         </tr>
                     </ng-template>
                     <ng-template pTemplate="body" let-ticket>
-                        <tr routerLink="/ticket/{{ticket.ID}}">
+                        <tr routerLink="/ticket/{{ticket.id}}">
                             <td>{{ticket.title}}</td>
                             <td>
-                                <p *ngIf="ticket.prioritylevel == 0" class="text-danger">{{ticket.prioritylevel | priority}}</p>
-                                <p *ngIf="ticket.prioritylevel == 1" class="text-warning">{{ticket.prioritylevel | priority}}</p>
-                                <div *ngIf="ticket.prioritylevel >= 2">
-                                    <p *ngIf="ticket.prioritylevel != 5">{{ticket.prioritylevel | priority}}</p>
-                                    <p *ngIf="ticket.prioritylevel == 5" class="text-muted">{{ticket.prioritylevel | priority}}</p>
+                                <p *ngIf="ticket.priorityLevel == 0" class="text-danger">{{ticket.priorityLevel | priority}}</p>
+                                <p *ngIf="ticket.priorityLevel == 1" class="text-warning">{{ticket.priorityLevel | priority}}</p>
+                                <div *ngIf="ticket.priorityLevel >= 2">
+                                    <p *ngIf="ticket.priorityLevel != 5">{{ticket.priorityLevel | priority}}</p>
+                                    <p *ngIf="ticket.priorityLevel == 5" class="text-muted">{{ticket.priorityLevel | priority}}</p>
                                 </div>
                             </td>
                             <td>

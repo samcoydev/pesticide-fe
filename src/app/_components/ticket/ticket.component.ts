@@ -50,7 +50,7 @@ export class TicketComponent implements OnInit {
   }
 
   setPriority(priorityLevel: number) {
-    this.ticket.prioritylevel = priorityLevel;
+    this.ticket.priorityLevel = priorityLevel;
     this.updateTicket();
   }
 

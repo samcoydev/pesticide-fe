@@ -1,11 +1,11 @@
 export class Ticket {
-    ID: number;
+    id: number;
     title: string;
     description: string;
     timestamp: Date;
     assignedusername: string;
     creator: string;
-    prioritylevel: number;
+    priorityLevel: number;
     deadline: Date;
     status: number;
 }

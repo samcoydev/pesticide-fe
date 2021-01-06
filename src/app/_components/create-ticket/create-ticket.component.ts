@@ -59,7 +59,7 @@ export class CreateTicketComponent implements OnInit {
     this.ticket = this.form.value;
     this.ticket.creator = this.currentUser.email;
     this.ticket.timestamp = new Date();
-    this.ticket.prioritylevel = this.priorityLevel;
+    this.ticket.priorityLevel = this.priorityLevel;
     this.ticket.deadline = new Date(this.deadline);
     this.ticket.assignedusername = this.assignedUsername;
     this.ticket.status = 0;
